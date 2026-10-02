@@ -1,7 +1,7 @@
 // Bygger 3D-teksten av stablede kopier, slik at CSS-animasjonen kan spinne den
 document.querySelectorAll(".logo[data-text]").forEach(function (logo) {
   var text = logo.getAttribute("data-text");
-  logo.setAttribute("aria-label", text + "™");
+  logo.setAttribute("aria-label", text);
   var layers = 36;
   var step = 0.014;
   var half = (layers * step) / 2;
@@ -9,12 +9,7 @@ document.querySelectorAll(".logo[data-text]").forEach(function (logo) {
     var s = document.createElement("span");
     s.className = "layer" + (i === 0 ? "" : " back");
     s.setAttribute("aria-hidden", i === 0 ? "false" : "true");
-    s.appendChild(document.createTextNode(text));
-    var tm = document.createElement("span");
-    tm.className = "logo-tm";
-    tm.setAttribute("aria-hidden", "true");
-    tm.textContent = "™";
-    s.appendChild(tm);
+    s.textContent = text;
     s.style.transform = "translateZ(" + (half - i * step) + "em)";
     // forsiden i full aksentfarge, sidene toner ned mot skyggefargen
     var pct = Math.round(100 - (i / (layers - 1)) * 100);
