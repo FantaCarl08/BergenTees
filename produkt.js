@@ -137,6 +137,7 @@
         html += "</div></div>";
       });
     html += "</div>";
+    html += '<a class="size-chart-link" href="assets/size-chart.png" target="_blank" rel="noopener">Størrelsesguide</a>';
     html += '<div class="product-actions">';
     html += '<button type="button" id="add-to-cart-btn" class="buy-btn buy-btn-outline"' +
       (variant && variant.availableForSale ? "" : " disabled") +
